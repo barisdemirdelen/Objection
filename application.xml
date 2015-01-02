@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/15.0">
-	<id>com.barisdemirdelen.mobile..Objection</id>
+	<id>com.barisdemirdelen.mobile.objection</id>
 	<versionNumber>1.0.0</versionNumber>
 	<supportedProfiles>mobileDevice</supportedProfiles>
 	<filename>Objection</filename>
@@ -45,7 +45,7 @@
 		<content>Objection.swf</content>
 		<visible>true</visible>
 		<fullScreen>true</fullScreen>
-		<autoOrients>true</autoOrients>
+		<autoOrients>false</autoOrients>
 		<aspectRatio>portrait</aspectRatio>
 		<renderMode>gpu</renderMode>
 		<!--<depthAndStencil>true</depthAndStencil>-->
@@ -62,7 +62,6 @@
 		<image120x120>icons/icon_120.png</image120x120>
 		<image144x144>icons/icon_144.png</image144x144>
 		<image152x152>icons/icon_152.png</image152x152>
-		<!--<image512x512>icons/icon_512.png</image512x512>-->
 	</icon>
 	<!--
 		 AIR options:
@@ -77,7 +76,7 @@
 		 Android manifest documentation:
 		 http://developer.android.com/guide/topics/manifest/manifest-intro.html
 	-->
-	<extensions>
+	<!--<extensions>
 		<extensionID>com.codealchemy.ane.admobane</extensionID>
-	</extensions>
+	</extensions>-->
 </application>
