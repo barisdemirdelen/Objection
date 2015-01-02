@@ -8,6 +8,9 @@
             <entry library-id="4b48a37d-27cb-40e3-a41e-e64541a4ea6d">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="dfb106bc-e8e0-46b8-b013-f1810be083f6">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK_Compiler" />
         </dependencies>
@@ -43,6 +46,16 @@
         <properties id="4b48a37d-27cb-40e3-a41e-e64541a4ea6d" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/objection.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="dfb106bc-e8e0-46b8-b013-f1810be083f6" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/ane/AdMobAne_Full.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

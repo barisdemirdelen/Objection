@@ -1,5 +1,9 @@
 package {
 
+import com.codealchemy.ane.admobane.AdMobManager;
+import com.codealchemy.ane.admobane.AdMobPosition;
+import com.codealchemy.ane.admobane.AdMobSize;
+
 import fl.video.VideoEvent;
 
 import flash.desktop.NativeApplication;
@@ -9,9 +13,9 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.filesystem.File;
+import flash.system.Capabilities;
 
 public class Objection extends Sprite {
-
 
     private var currentVideo:slam = null;
     private var mainSprite:objectionAppSprite = null;
@@ -21,6 +25,8 @@ public class Objection extends Sprite {
     private var video3Sprite:slam = null;
     private var video4Sprite:slam = null;
     private var video5Sprite:slam = null;
+
+    private var adMobManager:AdMobManager = null;
 
     public function Objection() {
         if (this.stage) {
@@ -98,6 +104,19 @@ public class Objection extends Sprite {
         video5Sprite.height = mainSprite.image.height;
         video5Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
         video5Sprite.y = mainSprite.image.y - mainSprite.image.height / 2;
+
+        adMobManager = AdMobManager.manager;
+
+        if(adMobManager.isSupported){
+            adMobManager.renderLayerType = AdMobManager.RENDER_TYPE_HARDWARE;
+            adMobManager.operationMode = AdMobManager.TEST_MODE;
+            if (Capabilities.manufacturer.toLowerCase().indexOf("ios") != -1) { //ios
+                adMobManager.bannersAdMobId = "ca-app-pub-7819139870608872/7050936050";
+            } else {
+                adMobManager.bannersAdMobId = "ca-app-pub-7819139870608872/5434602056";
+            }
+            adMobManager.createBanner(AdMobSize.BANNER,AdMobPosition.BOTTOM_CENTER,"BottomBanner", null, true);
+        }
     }
 
     private function onExit(e:Event = null):void {
@@ -110,6 +129,8 @@ public class Objection extends Sprite {
         mainSprite.button5.removeEventListener(MouseEvent.CLICK, onButton5Click);
 
         removeVideo();
+
+        adMobManager.removeAllBanner();
     }
 
     private function addVideo(sprite:slam):void {
