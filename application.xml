@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <application xmlns="http://ns.adobe.com/air/application/15.0">
 	<id>com.barisdemirdelen.mobile.objection</id>
-	<versionNumber>1.0.0</versionNumber>
+	<versionNumber>1.0.1</versionNumber>
 	<supportedProfiles>mobileDevice</supportedProfiles>
 	<filename>Objection</filename>
 	<name>Objection</name>

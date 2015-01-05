@@ -65,7 +65,7 @@
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
-  <component name="IdProvider" IDEtalkID="34E924FE7493D94E3A0AA27D9130D373" />
+  <component name="IdProvider" IDEtalkID="EBD1B506C2C736CAD27C8A775FA36150" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
@@ -79,7 +79,7 @@
   <component name="ProjectModuleManager">
     <modules />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="AIRSDK_Compiler" project-jdk-type="Flex SDK Type (new)">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="AIRSDK_Compiler" project-jdk-type="Flex SDK Type (new)">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="PropertiesComponent">
@@ -188,7 +188,6 @@
     <states>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>AIRSDK_Compiler</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

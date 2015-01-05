@@ -2,13 +2,13 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="Objection">
     <configurations>
-      <configuration name="Objection" target-platform="Mobile" pure-as="true" main-class="Objection" output-file="Objection.swf" output-folder="$MODULE_DIR$/out/production/Objection">
-        <dependencies target-player="15.0">
+      <configuration name="Objection" target-platform="Mobile" pure-as="true" main-class="Objection" output-file="Objection.swf" output-folder="$MODULE_DIR$/out">
+        <dependencies>
           <entries>
-            <entry library-id="4b48a37d-27cb-40e3-a41e-e64541a4ea6d">
+            <entry library-id="8f9d57d1-0117-40c5-a97e-cf034dd19c15">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-id="dfb106bc-e8e0-46b8-b013-f1810be083f6">
+            <entry library-id="35d32d59-1ddf-4d6c-84b0-1a207c723090">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -19,15 +19,13 @@
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/application.xml" package-file-name="Objection">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/icons/icons" path-in-package="icons" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/videos" path-in-package="." />
           </files-to-package>
         </packaging-android>
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/application.xml" package-file-name="Objection">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/videos" path-in-package="." />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/icons/icons" path-in-package="icons" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$MODULE_DIR$/cert/ios_distribution.p12" provisioning-profile-path="$MODULE_DIR$/cert/ObjectionAdHoc.mobileprovision" />
+          <AirSigningOptions keystore-path="$MODULE_DIR$/cert/ios_distribution.p12" provisioning-profile-path="$MODULE_DIR$/cert/ObjectionDist.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -43,7 +41,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="4b48a37d-27cb-40e3-a41e-e64541a4ea6d" />
+        <properties id="8f9d57d1-0117-40c5-a97e-cf034dd19c15" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/objection.swc!/" />
         </CLASSES>
@@ -53,7 +51,7 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="dfb106bc-e8e0-46b8-b013-f1810be083f6" />
+        <properties id="35d32d59-1ddf-4d6c-84b0-1a207c723090" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/ane/AdMobAne_Full.ane!/" />
         </CLASSES>

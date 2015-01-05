@@ -138,14 +138,14 @@ public class Objection extends Sprite {
         currentVideo = sprite;
         currentVideo.video.play();
         currentVideo.video.addEventListener(VideoEvent.COMPLETE, onVideoTimer);
-        this.addChild(currentVideo);
+        mainSprite.addChild(currentVideo);
         mainSprite.image.visible = false;
     }
 
     private function removeVideo():void {
         if (currentVideo) {
             currentVideo.video.removeEventListener(VideoEvent.COMPLETE, onVideoTimer);
-            this.removeChild(currentVideo);
+            mainSprite.removeChild(currentVideo);
             currentVideo = null;
         }
         mainSprite.image.visible = true;
