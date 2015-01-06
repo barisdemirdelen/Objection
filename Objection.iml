@@ -18,12 +18,14 @@
         <packaging-air-desktop />
         <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/application.xml" package-file-name="Objection">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/icons" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/videos" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/icons/icons" path-in-package="icons" />
           </files-to-package>
         </packaging-android>
         <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/application.xml" package-file-name="Objection">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/icons" path-in-package="." />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/videos" path-in-package="." />
           </files-to-package>
           <AirSigningOptions keystore-path="$MODULE_DIR$/cert/ios_distribution.p12" provisioning-profile-path="$MODULE_DIR$/cert/ObjectionDist.mobileprovision" />
         </packaging-ios>

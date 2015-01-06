@@ -107,7 +107,7 @@ public class Objection extends Sprite {
 
         adMobManager = AdMobManager.manager;
 
-        if(adMobManager.isSupported){
+        if (adMobManager.isSupported) {
             adMobManager.renderLayerType = AdMobManager.RENDER_TYPE_HARDWARE;
             adMobManager.operationMode = AdMobManager.TEST_MODE;
             if (Capabilities.manufacturer.toLowerCase().indexOf("ios") != -1) { //ios
@@ -115,7 +115,7 @@ public class Objection extends Sprite {
             } else {
                 adMobManager.bannersAdMobId = "ca-app-pub-7819139870608872/5434602056";
             }
-            adMobManager.createBanner(AdMobSize.BANNER,AdMobPosition.BOTTOM_CENTER,"BottomBanner", null, true);
+            adMobManager.createBanner(AdMobSize.BANNER, AdMobPosition.BOTTOM_CENTER, "BottomBanner", null, true);
         }
     }
 
