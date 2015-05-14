@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<application xmlns="http://ns.adobe.com/air/application/16.0">
+<application xmlns="http://ns.adobe.com/air/application/17.0">
     <id>com.barisdemirdelen.mobile.objection</id>
-    <versionNumber>1.0.3</versionNumber>
+    <versionNumber>1.0.4</versionNumber>
     <supportedProfiles>mobileDevice</supportedProfiles>
     <filename>Objection</filename>
     <name>Objection</name>
@@ -11,9 +11,10 @@
 	<uses-sdk android:minSdkVersion="9" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 	
 	<application>
-		<meta-data android:name="com.google.android.gms.version" android:value="4452000"/>
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
 		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 	</application>
 </manifest>]]>
@@ -76,6 +77,6 @@
          http://developer.android.com/guide/topics/manifest/manifest-intro.html
     -->
     <extensions>
-        <extensionID>com.codealchemy.ane.admobane</extensionID>
+        <extensionID>so.cuo.platform.admob</extensionID>
     </extensions>
 </application>

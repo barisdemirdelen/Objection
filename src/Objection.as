@@ -1,9 +1,5 @@
 package {
 
-import com.codealchemy.ane.admobane.AdMobManager;
-import com.codealchemy.ane.admobane.AdMobPosition;
-import com.codealchemy.ane.admobane.AdMobSize;
-
 import fl.video.VideoEvent;
 
 import flash.desktop.NativeApplication;
@@ -13,7 +9,6 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.filesystem.File;
-import flash.system.Capabilities;
 
 public class Objection extends Sprite {
 
@@ -24,9 +19,10 @@ public class Objection extends Sprite {
     private var video2Sprite:slam = null;
     private var video3Sprite:slam = null;
     private var video4Sprite:slam = null;
-    private var video5Sprite:slam = null;
 
-    private var adMobManager:AdMobManager = null;
+    private var _admob:AdmobService = null;
+
+    private var _currentCharacter:String = Character.WRIGHT;
 
     public function Objection() {
         if (this.stage) {
@@ -48,22 +44,22 @@ public class Objection extends Sprite {
         mainSprite.y = 0;
         this.addChild(mainSprite);
 
+        mainSprite.buttonPerson.txtName.text = _currentCharacter;
         mainSprite.button1.txtName.text = "Slam!";
         mainSprite.button2.txtName.text = "Objection!";
         mainSprite.button3.txtName.text = "Hold It!";
         mainSprite.button4.txtName.text = "Take That!";
-        mainSprite.button5.txtName.text = "Gotcha!";
 
+        mainSprite.buttonPerson.addEventListener(MouseEvent.CLICK, onButtonPersonClick);
         mainSprite.button1.addEventListener(MouseEvent.CLICK, onButton1Click);
         mainSprite.button2.addEventListener(MouseEvent.CLICK, onButton2Click);
         mainSprite.button3.addEventListener(MouseEvent.CLICK, onButton3Click);
         mainSprite.button4.addEventListener(MouseEvent.CLICK, onButton4Click);
-        mainSprite.button5.addEventListener(MouseEvent.CLICK, onButton5Click);
 
         video1Sprite = new slam();
         video1Sprite.video.autoPlay = false;
         video1Sprite.video.stop();
-        video1Sprite.video.source = new File(File.applicationDirectory.url + "slam.flv").url;
+
         video1Sprite.width = mainSprite.image.width;
         video1Sprite.height = mainSprite.image.height;
         video1Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
@@ -72,7 +68,7 @@ public class Objection extends Sprite {
         video2Sprite = new slam();
         video2Sprite.video.autoPlay = false;
         video2Sprite.video.stop();
-        video2Sprite.video.source = new File(File.applicationDirectory.url + "objection.flv").url;
+
         video2Sprite.width = mainSprite.image.width;
         video2Sprite.height = mainSprite.image.height;
         video2Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
@@ -81,7 +77,6 @@ public class Objection extends Sprite {
         video3Sprite = new slam();
         video3Sprite.video.autoPlay = false;
         video3Sprite.video.stop();
-        video3Sprite.video.source = new File(File.applicationDirectory.url + "holdit.flv").url;
         video3Sprite.width = mainSprite.image.width;
         video3Sprite.height = mainSprite.image.height;
         video3Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
@@ -90,47 +85,28 @@ public class Objection extends Sprite {
         video4Sprite = new slam();
         video4Sprite.video.autoPlay = false;
         video4Sprite.video.stop();
-        video4Sprite.video.source = new File(File.applicationDirectory.url + "takethat.flv").url;
+
         video4Sprite.width = mainSprite.image.width;
         video4Sprite.height = mainSprite.image.height;
         video4Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
         video4Sprite.y = mainSprite.image.y - mainSprite.image.height / 2;
 
-        video5Sprite = new slam();
-        video5Sprite.video.autoPlay = false;
-        video5Sprite.video.stop();
-        video5Sprite.video.source = new File(File.applicationDirectory.url + "gotcha.flv").url;
-        video5Sprite.width = mainSprite.image.width;
-        video5Sprite.height = mainSprite.image.height;
-        video5Sprite.x = mainSprite.image.x - mainSprite.image.width / 2;
-        video5Sprite.y = mainSprite.image.y - mainSprite.image.height / 2;
-
-        adMobManager = AdMobManager.manager;
-
-        if (adMobManager.isSupported) {
-            adMobManager.renderLayerType = AdMobManager.RENDER_TYPE_HARDWARE;
-            adMobManager.operationMode = AdMobManager.TEST_MODE;
-            if (Capabilities.manufacturer.toLowerCase().indexOf("ios") != -1) { //ios
-                adMobManager.bannersAdMobId = "ca-app-pub-7819139870608872/7050936050";
-            } else {
-                adMobManager.bannersAdMobId = "ca-app-pub-7819139870608872/5434602056";
-            }
-            adMobManager.createBanner(AdMobSize.BANNER, AdMobPosition.BOTTOM_CENTER, "BottomBanner", null, true);
-        }
+        _admob = new AdmobService();
+        _admob.showAds();
     }
 
     private function onExit(e:Event = null):void {
         NativeApplication.nativeApplication.removeEventListener(Event.CLOSING, onExit);
 
+        mainSprite.buttonPerson.removeEventListener(MouseEvent.CLICK, onButtonPersonClick);
         mainSprite.button1.removeEventListener(MouseEvent.CLICK, onButton1Click);
         mainSprite.button2.removeEventListener(MouseEvent.CLICK, onButton2Click);
         mainSprite.button3.removeEventListener(MouseEvent.CLICK, onButton3Click);
         mainSprite.button4.removeEventListener(MouseEvent.CLICK, onButton4Click);
-        mainSprite.button5.removeEventListener(MouseEvent.CLICK, onButton5Click);
 
         removeVideo();
 
-        adMobManager.removeAllBanner();
+        _admob.hideAds();
     }
 
     private function addVideo(sprite:slam):void {
@@ -155,24 +131,44 @@ public class Objection extends Sprite {
         removeVideo();
     }
 
+    private function onButtonPersonClick(event:Event = null):void {
+        switch (_currentCharacter) {
+            case Character.WRIGHT:
+                _currentCharacter = Character.EDGEWORTH;
+                break;
+            case Character.EDGEWORTH:
+                _currentCharacter = Character.APOLLO;
+                break;
+            case Character.APOLLO:
+                _currentCharacter = Character.FEY;
+                break;
+            case Character.FEY:
+                _currentCharacter = Character.WRIGHT;
+                break;
+            default:
+                break;
+        }
+        mainSprite.buttonPerson.txtName.text = _currentCharacter;
+    }
+
     private function onButton1Click(event:Event = null):void {
+        video1Sprite.video.source = new File(File.applicationDirectory.url + "slam.flv").url;
         addVideo(video1Sprite);
     }
 
     private function onButton2Click(event:Event = null):void {
+        video2Sprite.video.source = new File(File.applicationDirectory.url + _currentCharacter + "-objection.flv").url;
         addVideo(video2Sprite);
     }
 
     private function onButton3Click(event:Event = null):void {
+        video3Sprite.video.source = new File(File.applicationDirectory.url + _currentCharacter + "-holdit.flv").url;
         addVideo(video3Sprite);
     }
 
     private function onButton4Click(event:Event = null):void {
+        video4Sprite.video.source = new File(File.applicationDirectory.url + _currentCharacter + "-takethat.flv").url;
         addVideo(video4Sprite);
-    }
-
-    private function onButton5Click(event:Event = null):void {
-        addVideo(video5Sprite);
     }
 
 }

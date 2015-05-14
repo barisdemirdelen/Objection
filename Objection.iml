@@ -8,11 +8,11 @@
             <entry library-id="8f9d57d1-0117-40c5-a97e-cf034dd19c15">
               <dependency linkage="Merged" />
             </entry>
-            <entry library-id="35d32d59-1ddf-4d6c-84b0-1a207c723090">
+            <entry library-id="c4e24c14-d795-478e-89e0-ce1800b1a7ba">
               <dependency linkage="Merged" />
             </entry>
           </entries>
-          <sdk name="air16_sdk_win" />
+          <sdk name="air17" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
@@ -39,7 +39,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/videos" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="air16_sdk_win" jdkType="Flex SDK Type (new)" />
+    <orderEntry type="jdk" jdkName="air17" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
@@ -53,9 +53,9 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="35d32d59-1ddf-4d6c-84b0-1a207c723090" />
+        <properties id="c4e24c14-d795-478e-89e0-ce1800b1a7ba" />
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/ane/AdMobAne_Full.ane!/" />
+          <root url="jar://$MODULE_DIR$/ane/admob_all_in_one_20150209.ane!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
